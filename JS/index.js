@@ -26,7 +26,14 @@ const menuDropdowInit = () =>
         elem.addEventListener('click', e => {
             let parent = e.target.parentNode;
             let listElements = parent.querySelectorAll('ul li');
-            let listElementsHeight = listElements[0].getBoundingClientRect().height * listElements.length + 50;
+            let listElementsHeight = [...listElements].map(elem => {
+                return elem.getBoundingClientRect().height;
+            })
+
+            listElementsHeight = [...listElementsHeight].reduce((acumulator, currentValue) => {
+                return (acumulator + 1.5) + currentValue;
+            })
+            
             let counter = 0;
 
             if(parent.querySelector('span').textContent === '-')
@@ -39,7 +46,7 @@ const menuDropdowInit = () =>
                 parent.querySelector('span').textContent = '-';
                 while(counter < listElementsHeight)
                 {
-                    parent.querySelector('ul').style.height = `${counter}px`;
+                    parent.querySelector('ul').style.height = `${counter + 20}px`;
                     counter += 10;
                 }
             }
@@ -48,7 +55,7 @@ const menuDropdowInit = () =>
 };
 
 const changeFooterFixed = () => {
-    if(window.pageYOffset > window.innerHeight && window.innerWidth > 1000)
+    if(window.pageYOffset > window.innerHeight * 1.2 && window.innerWidth > 1000)
     {
         document.querySelector('.footer-comprar-fixo').style.bottom = '45px';
     }

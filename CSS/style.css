@@ -428,13 +428,14 @@ body {
 }
 
 .body-product-benefits-rule {
-    width: 75%;
+    width: 304.88px;
     margin-top: 5px;
 }
 
 /*altura de 0px e overflow hidden para ocultar os itens da lista que serão exibidos
 aqui tem um transition para exibir os items com mais suavidade no click*/
 .body-product-benefits-list {
+    width: 100vw;
     text-transform: uppercase;
     font-size: 16px;
     margin-top: 15px;
@@ -443,12 +444,22 @@ aqui tem um transition para exibir os items com mais suavidade no click*/
     height: 0px;
     transition: height .2s ease-in;
 }
-
+@media screen and (min-width: 1000px)
+{
+    .body-product-benefits-list
+    {
+        width: 400px;
+    }
+}
 .body-product-benefits-list hr {
-    width: 85%;
-    margin: 25px auto 0 15px;
+    width: 304.88px;
+    margin: 15px auto 0 15px;
 }
 
+.product-right .body-product-benefits-list hr
+{
+    margin-left: 30px;
+}
 .fakeButton {
     width: 230px;
     height: 70px;

@@ -19,14 +19,6 @@ class Carousel
     #step;
 
     /**
-     * @var Promise<string> guarda uma promisse contendo o json com as informações do carrossel de perguntas frequentes
-     * @access private
-     */
-    #faqQuestions;
-
-    #productsInformations;
-
-    /**
      * @var int valor de um único espaço entre cada elemento do carrossel
      * @access private
      */
@@ -48,22 +40,36 @@ class Carousel
     }
 
     /**
+     * @async
      * @returns {void}
-     * @description se a instancia for do carrossel de perguntas frequentes, carrega as informações do json
+     * @description verifica o carrossel atual e obtém as informações para gerar os itens
      */
-    loadCarouselInformations()
+    async loadCarouselInformations()
     {
         if(this.#actualCarousel.dataset.id === 'carousel-faq')
         {
-            this.#faqQuestions = this.getFaqQuestions().then(resp => resp);
-            this.getFaqArticles();
+            await this.getCarouselInformations('faqQuestions.json').then(resp => this.getFaqArticles(resp));
         }
         else
         {
-            this.#productsInformations = this.getProducts().then(resp => resp);
-            this.getSlideProducts();
+            await this.getCarouselInformations('productsCarousel.json').then(resp => this.getSlideProducts(resp));
         }
     }
+
+    /**
+     * @async
+     * @returns {Promise<string>} os dados do json
+     * @description obtém as informações para preencher o carrossel de perguntas frequentes
+     */
+    getCarouselInformations(file)
+    {
+        return new Promise((resolve, reject) => {
+            fetch(`http://127.0.0.1:5501/data/${file}`)
+                .then(resp => resolve(resp.json()))
+                    .catch(e => reject(e));
+        });
+    }
+
     /**
      * 
      * @param {int} direction direção da seta que o usuário clicou 
@@ -129,7 +135,7 @@ class Carousel
      * 
      * @param {int} direction direção de visualização escolhida pelo usuário
      * @returns {void}
-     * @description 
+     * @description retira o elemento da primeira ou última posição baseado na direção clicada
      */
     modifySequence(direction)
     {
@@ -185,79 +191,64 @@ class Carousel
         };
     }
 
-    /**
-     * @async
-     * @returns {Promise<string>} os dados do json
-     * @description obtém as informações para preencher o carrossel de perguntas frequentes
-     */
-    getFaqQuestions()
-    {
-        return new Promise((resolve, reject) => {
-            fetch('https://alessandro-miranda.github.io/landing-colageno/data/faqQuestions.json').
-                then(resp => resolve(resp.json()))
-                    .catch(e => reject(e));
-        });
-    }
-    getProducts()
-    {
-        return new Promise((resolve, reject) => {
-            fetch('https://alessandro-miranda.github.io/landing-colageno/data/productsCarousel.json').
-                then(resp => resolve(resp.json()))
-                    .catch(e => reject(e));
-        });
-    }
 
     /**
      * @returns {void}
      * @description gera os articles do carrossel de perguntas frequentes baseado num limite de caracteres
      */
-    getFaqArticles()
+    getFaqArticles(response)
     {
-        this.#faqQuestions.then(resp => {
+        response.map((elem, index) => {
 
-            resp.map((elem, index) => {
+            let showMoreButton = false, newResponse, caracters = elem.questions[0].response;
+            let plusIcon = document.createElement('i');
+            plusIcon.classList.add('fas', 'fa-plus', 'faq__carousel__item__btn__showMore')
 
-                let showMoreButton = false, newResponse, caracters = elem.questions[0].response;
-                let plusIcon = document.createElement('i');
-                plusIcon.classList.add('fas', 'fa-plus', 'faq__carousel__item__btn__showMore')
-
-                if(caracters.length > 180)
+            if(caracters.length > 180)
+            {
+                if(caracters.substring(180, 181) !== '<')
                 {
-                    if(caracters.substring(180, 201) !== '<')
-                    {
-                        newResponse = caracters.substring(0, 180) + '...';
-                    }
-                    else
-                    {
-                        newResponse = caracters.substring(0, 182) + '...';
-                    }
-                    showMoreButton = true;
+                    newResponse = caracters.substring(0, 180) + '...';
                 }
                 else
                 {
-                    newResponse = caracters;
+                    newResponse = caracters.substring(0, 182) + '...';
                 }
+                showMoreButton = true;
+            }
+            else
+            {
+                newResponse = caracters;
+            }
 
-                this.#actualCarousel.innerHTML += this.generateItems(elem, index, newResponse)
+            this.#actualCarousel.innerHTML += this.generateItems(elem, index, newResponse)
 
-                if(showMoreButton) document.querySelector(`#btn-showMore${index}`).appendChild(plusIcon);
-            });
-
-            this.btnShowMoreInitiEvents();
+            if(showMoreButton) document.querySelector(`#btn-showMore${index}`).appendChild(plusIcon);
         });
 
+        this.btnShowMoreInitiEvents();
     }
-    getSlideProducts()
+
+    /**
+     * @param {object} response 
+     * @returns void
+     * @description gera os elementos do carrossel de produtos
+     */
+    getSlideProducts(response)
     {
-        this.#productsInformations.then(resp => {
-            resp.map((elem, index) => {
-                this.#actualCarousel.innerHTML += this.generateItems(elem, index);
-            });
-        }).then(() => {
-            this.#actualCarousel.querySelector('.slide:nth-child(3)').classList.add('slide-active');
+        response.map((elem, index) => {
+            this.#actualCarousel.innerHTML += this.generateItems(elem, index);
         });
+
+        this.#actualCarousel.querySelector('.slide:nth-child(3)').classList.add('slide-active');
     }
     
+    /**
+     * 
+     * @param {object} elem objeto contendo as informações que serão inseridas no faq 
+     * @param {int} index indice do elemento no array original
+     * @param {string} newResponse resposta reescrita para a seção do faq em caso de string maior de 180 caracteres
+     */
     generateItems(elem, index, newResponse = '')
     {
         if(this.#actualCarousel.dataset.id === 'carousel-faq')
@@ -305,6 +296,7 @@ class Carousel
             });
         });
     }
+
     /**
      * 
      * @param {object} parent elemento pai (article) onde está os textos à serem modificados
@@ -313,7 +305,7 @@ class Carousel
      */
     getCompleteAnswer(parent)
     {
-        this.#faqQuestions.then(resp => {
+        this.getCarouselInformations('faqQuestions.json').then(resp => {
             resp.filter((elem, index) => {
                 if(index === parseInt(parent.dataset.id))
                 {

@@ -193,7 +193,7 @@ class Carousel
     getFaqQuestions()
     {
         return new Promise((resolve, reject) => {
-            fetch('http://127.0.0.1:5501/data/faqQuestions.json').
+            fetch('https://alessandro-miranda.github.io/landing-colageno/data/faqQuestions.json').
                 then(resp => resolve(resp.json()))
                     .catch(e => reject(e));
         });
@@ -201,7 +201,7 @@ class Carousel
     getProducts()
     {
         return new Promise((resolve, reject) => {
-            fetch('http://127.0.0.1:5501/data/productsCarousel.json').
+            fetch('https://alessandro-miranda.github.io/landing-colageno/data/productsCarousel.json').
                 then(resp => resolve(resp.json()))
                     .catch(e => reject(e));
         });

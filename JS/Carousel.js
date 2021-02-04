@@ -28,7 +28,7 @@ class Carousel
      * 
      * @param {string} carouselName seletor da instância do carrossel - id ou class do carrossel
      * @param {int} step Quantidade de itens que serão avançados 
-     * @param {*} margins - o tamanho de espaço entre cada item do slider
+     * @param {int} margins - o tamanho de espaço entre cada item do slider
      */
     constructor(carouselName, step, margins)
     {
@@ -64,7 +64,7 @@ class Carousel
     getCarouselInformations(file)
     {
         return new Promise((resolve, reject) => {
-            fetch(`https://alessandro-miranda.github.io/landing-colageno/data/${file}`)
+            fetch(`http://127.0.0.1:5501/data/${file}`)
                 .then(resp => resolve(resp.json()))
                     .catch(e => reject(e));
         });

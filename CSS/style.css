@@ -729,7 +729,13 @@ h6 {
     top: 0;
     left: -480px;
 }
-
+@media screen and (min-width: 375px)
+{
+    #carousel,
+    #carousel-faq {
+        left: -560px;
+    }
+}
 @media screen and (min-width: 414px) {
 
     #carousel,
@@ -740,6 +746,14 @@ h6 {
 
 #carousel-faq {
     left: 30px;
+}
+@media screen and (min-width: 375px)
+{
+    
+    #carousel-faq
+    {
+        left: -280px
+    }
 }
 @media screen and (min-width: 1300px)
 {

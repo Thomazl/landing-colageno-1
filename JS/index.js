@@ -20,7 +20,6 @@ else
 
 const menuDropdowInit = () =>
 {
-    alert(window.innerWidth)
     let elements = document.querySelectorAll(".body-product-benefits-title, .body-product-benefits-plus-signal");
 
     elements.forEach(elem => {

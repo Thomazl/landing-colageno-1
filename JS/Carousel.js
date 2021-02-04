@@ -64,7 +64,7 @@ class Carousel
     getCarouselInformations(file)
     {
         return new Promise((resolve, reject) => {
-            fetch(`http://127.0.0.1:5501/data/${file}`)
+            fetch(`https://alessandro-miranda.github.io/landing-colageno/data/${file}`)
                 .then(resp => resolve(resp.json()))
                     .catch(e => reject(e));
         });

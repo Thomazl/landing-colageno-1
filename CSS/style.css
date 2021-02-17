@@ -19,11 +19,12 @@ body {
     margin: 0;
 }
 
-body a, body a:hover
-{
+body a,
+body a:hover {
     text-decoration: none;
     color: inherit;
 }
+
 .site {
     width: 100%;
     margin: 0;
@@ -68,18 +69,31 @@ body a, body a:hover
     display: none;
 }
 
+#warning-img {
+    position: absolute;
+    z-index: 6;
+    bottom: 2%;
+    left: 19%;
+    display: block;
+    color: rgba(77, 77, 77, 0.788);
+}
+
 .site-body {
     width: 100%;
     height: 100%;
     position: relative;
 }
 
+
 /*refatorada*/
+
 .body-post {
     height: max-content;
 }
 
+
 /* post hidrolizado */
+
 .post-hidrolisado,
 .post-tipo {
     width: 100vw;
@@ -117,8 +131,12 @@ body a, body a:hover
     margin: 50px auto 0 auto;
 }
 
+
 /* end post hidrolisado */
+
+
 /* post tipo II */
+
 .post-tipo {
     background-image: url('../Img/azul1.png');
     position: relative;
@@ -127,13 +145,17 @@ body a, body a:hover
 
 
 /* end tipo II */
+
+
 /* body product */
 
 .body-product {
     height: max-content;
 }
 
+
 /*background-position para posicionar o fundo da forma que quiser no eixo x e no eixo y respectivamente*/
+
 .product-left,
 .product-right {
     width: 100vw;
@@ -155,25 +177,22 @@ body a, body a:hover
 .body-product-benefits-right {
     margin-top: 50px;
 }
-@media screen and (min-width: 1000px)
-{
+
+@media screen and (min-width: 1000px) {
     .header-logo {
         display: inline-block;
         padding: 10px 0 5px 250px;
     }
-
     .header-photo {
         position: absolute;
         bottom: 3.7%;
         left: 60%;
         display: block;
     }
-
     .header-info {
         width: 100%;
         height: 450px;
     }
-
     .header-text {
         font-size: 26px;
         width: 35%;
@@ -181,13 +200,11 @@ body a, body a:hover
         line-height: 60px;
         margin: 5% 0 0 15%;
     }
-
     .body-post {
         height: 480px;
         display: flex;
         position: relative;
     }
-
     .post-hidrolisado,
     .post-tipo {
         width: 50%;
@@ -198,34 +215,29 @@ body a, body a:hover
         color: white;
         padding: 0px 200px 0 50px;
     }
-
     .post-hidrolisado {
         padding-top: 25px;
         width: 53%;
         z-index: 1;
         border-radius: 0px 20px 20px 0px;
     }
-
     .post-tipo {
         left: 50%;
         top: -30px;
         z-index: 0;
         border-radius: 20px 0px 0px 20px;
     }
-
     .post-hidrolisado h2,
     .post-tipo h2 {
         font-size: 60px;
         width: max-content;
         margin: 0 0px 0 auto;
     }
-
     .post-hidrolisado h3,
     .post-tipo h3 {
         font-size: 40px;
         margin: 0 -70px 0 auto;
     }
-
     .post-hidrolisado p,
     .post-tipo p {
         font-size: 18px;
@@ -233,49 +245,40 @@ body a, body a:hover
         margin: 50px auto 50px auto;
         transform: translateX(130px);
     }
-
     .post-tipo h2 {
         margin: 55px 5px 0 100px;
     }
-
     .post-tipo h3 {
         margin: 0 0px 0 103px;
     }
-
     .post-tipo p {
         margin: 10px 0 0 105px;
         transform: translateX(0px);
         width: 100%;
     }
-
     .body-product {
         display: flex;
         margin-top: -125px;
         position: relative;
         z-index: 6;
     }
-
     .product-left,
     .product-right {
         width: 50%;
     }
-
     .product-left {
         background-position: -55px 190px;
     }
-
     .product-right {
         background-size: contain;
         background-position: 95px 200px;
     }
-
     .body-product-products {
         display: flex;
         flex-direction: column;
         justify-items: center;
         align-items: center;
     }
-
     .body-product-benefits {
         margin-top: 30px;
         display: flex;
@@ -283,22 +286,19 @@ body a, body a:hover
         justify-items: center;
         align-items: center;
     }
-
     .body-product-benefits-left {
         margin-left: 80px;
     }
-
     .body-product-benefits-right {
         margin-left: 0px;
     }
-
     .body-product-benefits img {
         width: 320px;
     }
 }
+
 @media screen and (min-width: 1300px) {
-    .body-post 
-    {
+    .body-post {
         height: 600px;
     }
     .post-hidrolisado,
@@ -306,74 +306,60 @@ body a, body a:hover
         background-size: 100%;
         background-position: 100%;
     }
-
     .post-hidrolisado {
         padding-top: 35px;
         width: 53%;
         z-index: 1;
     }
-
     .post-tipo {
         left: 50%;
         top: -30px;
         z-index: 0;
         border-radius: 20px 0px 0px 20px;
     }
-
     .post-hidrolisado h2,
     .post-tipo h2 {
         margin: 0 120px 0 auto;
     }
-
     .post-hidrolisado h3,
     .post-tipo h3 {
         margin: 0 5px 0 auto;
     }
-
     .post-hidrolisado p,
     .post-tipo p {
         width: 47%;
         margin: 120px auto 0 auto;
     }
-
     .post-tipo h2 {
         margin: 35px 5px 0 100px;
     }
-
     .post-tipo h3 {
         margin: 0 0px 0 103px;
     }
-
     .post-tipo p {
         margin: 50px 0 0 105px;
         width: 52.5%;
     }
-
     .body-product {
         margin-top: -180px;
     }
-
     .product-left,
     .product-right {
         width: 50%;
     }
-
     .product-left {
         background-position: -55px 190px;
     }
-
     .product-right {
         background-size: contain;
         background-position: 95px 200px;
     }
-
     .body-product-products {
         display: flex;
         flex-direction: column;
         justify-items: center;
         align-items: center;
     }
-
     .body-product-benefits {
         margin-top: 30px;
         display: flex;
@@ -381,21 +367,20 @@ body a, body a:hover
         justify-items: center;
         align-items: center;
     }
-
     .body-product-benefits-left {
         margin-left: 150px;
     }
-
     .body-product-benefits-right {
         margin-left: -150px;
     }
-
     .body-product-benefits img {
         width: 320px;
     }
 }
 
+
 /*utiliza de uma span para estilizar o sinal de mais*/
+
 .body-product-benefits-plus-signal {
     color: white;
     background-color: #75307e;
@@ -437,8 +422,10 @@ body a, body a:hover
     margin-top: 5px;
 }
 
+
 /*altura de 0px e overflow hidden para ocultar os itens da lista que serão exibidos
 aqui tem um transition para exibir os items com mais suavidade no click*/
+
 .body-product-benefits-list {
     width: 100vw;
     text-transform: uppercase;
@@ -449,22 +436,22 @@ aqui tem um transition para exibir os items com mais suavidade no click*/
     height: 0px;
     transition: height .2s ease-in;
 }
-@media screen and (min-width: 1000px)
-{
-    .body-product-benefits-list
-    {
+
+@media screen and (min-width: 1000px) {
+    .body-product-benefits-list {
         width: 400px;
     }
 }
+
 .body-product-benefits-list hr {
     width: 304.88px;
     margin: 15px auto 0 15px;
 }
 
-.product-right .body-product-benefits-list hr
-{
+.product-right .body-product-benefits-list hr {
     margin-left: 30px;
 }
+
 .fakeButton {
     width: 230px;
     height: 70px;
@@ -492,6 +479,7 @@ aqui tem um transition para exibir os items com mais suavidade no click*/
     text-align: center;
     margin-top: 60px;
 }
+
 
 /* CARDES */
 
@@ -622,6 +610,7 @@ h6 {
     text-transform: uppercase;
     line-height: 1.5;
 }
+
 .cardes-face-content {
     width: 85%;
     margin: 35px auto 0 auto;
@@ -656,35 +645,31 @@ h6 {
 .cardes-uc2 .cardes-back {
     background-color: #006585;
 }
-.cardes-face-header img
-{
+
+.cardes-face-header img {
     position: absolute;
     top: 95px;
     right: -50px;
 }
-@media screen and (min-width: 1000px)
-{
-    .cardes-face-header img
-    {
+
+@media screen and (min-width: 1000px) {
+    .cardes-face-header img {
         display: none;
     }
     .container-desktop-cardess {
         display: flex;
         justify-content: center;
     }
-
     .cardes-wrapper {
         width: 50%;
         padding-top: 35px;
     }
     .cardes-face-header,
-    .cardes-back-header
-    {
+    .cardes-back-header {
         margin: 0 auto;
         width: 85%;
     }
-    .cardes-face-header::after
-    {
+    .cardes-face-header::after {
         right: 2px;
     }
     .container-cardes {
@@ -695,28 +680,24 @@ h6 {
         justify-content: space-between;
         align-items: center;
     }
-
     .cardes-face-header h1 {
         height: 85px;
     }
-
     .container-cardes .cardes:nth-child(odd) {
         margin-right: 40px;
     }
-
     .cardes {
         width: 42%;
         height: 330px;
         margin: 0 auto 15px auto;
     }
 }
-@media screen and (min-width: 1300px) {
 
+@media screen and (min-width: 1300px) {
     .cardes-wrapper {
         width: 40%;
         padding-top: 35px;
     }
-
     .cardes {
         width: 40%;
     }
@@ -724,6 +705,7 @@ h6 {
 
 
 /*carrossel infinito com efeito de blur*/
+
 .carousel-section {
     margin-top: 0;
 }
@@ -738,10 +720,11 @@ h6 {
     overflow: hidden;
     position: relative;
 }
-.carousel-wrap-faq .carousel-window
-{
+
+.carousel-wrap-faq .carousel-window {
     padding-top: 30px;
 }
+
 .carousel-wrap-faq {
     width: 100vw;
     height: max-content;
@@ -754,22 +737,22 @@ h6 {
     top: 0;
     left: -480px;
 }
-@media screen and (min-width: 360px)
-{
+
+@media screen and (min-width: 360px) {
     #carousel,
     #carousel-faq {
         left: -535px;
     }
 }
-@media screen and (min-width: 375px)
-{
+
+@media screen and (min-width: 375px) {
     #carousel,
     #carousel-faq {
         left: -560px;
     }
 }
-@media screen and (min-width: 414px) {
 
+@media screen and (min-width: 414px) {
     #carousel,
     #carousel-faq {
         left: -615px;
@@ -779,28 +762,25 @@ h6 {
 #carousel-faq {
     left: 30px;
 }
-@media screen and (min-width: 360px)
-{
-    #carousel-faq
-    {
+
+@media screen and (min-width: 360px) {
+    #carousel-faq {
         left: -280px;
     }
 }
-@media screen and (min-width: 375px)
-{
-    
-    #carousel-faq
-    {
+
+@media screen and (min-width: 375px) {
+    #carousel-faq {
         left: -280px
     }
 }
-@media screen and (min-width: 1300px)
-{
-    #carousel-faq
-    {
+
+@media screen and (min-width: 1300px) {
+    #carousel-faq {
         left: -1100px;
     }
 }
+
 .slide {
     height: 450px;
     width: 80vw;
@@ -870,8 +850,8 @@ h6 {
 .transition {
     transition: .7s;
 }
-@media screen and (min-width: 1000px)
-{
+
+@media screen and (min-width: 1000px) {
     .carousel-section {
         margin-top: 80px;
     }
@@ -889,8 +869,7 @@ h6 {
     #carousel-faq {
         left: -390px;
     }
-    #carousel-faq
-    {
+    #carousel-faq {
         left: -920px
     }
     .slide {
@@ -913,7 +892,6 @@ h6 {
     #carousel:hover .slide-active a:hover {
         background-color: #b1710a;
     }
-
     .prev-btn,
     .next-btn {
         bottom: -40px;
@@ -932,54 +910,51 @@ h6 {
         transform: rotateY(-180deg);
     }
 }
-@media screen and (min-width: 1300px) {
 
+@media screen and (min-width: 1300px) {
     .carousel-window {
         padding-top: 25px;
     }
     .carousel-wrap-faq {
         width: 1150px;
     }
-    #carousel-faq
-    {
+    #carousel-faq {
         left: -1130px
     }
     .slide-active {
         transform: perspective(600px) translateZ(200px);
     }
-
     .prev-btn,
     .next-btn {
         font-size: 48px;
         width: 40px;
     }
-
     .prev-btn {
         left: -15%;
     }
-
     .next-btn {
         right: -15%;
     }
 }
 
+
 /*fim do carrossel*/
 
+
 /* Perguntas frequentes */
+
 .faq {
     margin-top: 0px;
 }
-@media screen and (min-width: 1000px)
-{
-    .faq
-    {
+
+@media screen and (min-width: 1000px) {
+    .faq {
         margin-top: 0;
     }
 }
-@media screen and (min-width: 1300px)
-{
-    .faq
-    {
+
+@media screen and (min-width: 1300px) {
+    .faq {
         margin-top: 50px;
     }
 }
@@ -991,17 +966,15 @@ h6 {
     margin-bottom: 30px;
     font-size: 45px;
 }
-@media screen and (min-width: 1000px)
-{
-    .faq>h1
-    {
+
+@media screen and (min-width: 1000px) {
+    .faq>h1 {
         margin-bottom: 50px;
     }
 }
-@media screen and (min-width: 1300px)
-{
-    .faq>h1
-    {
+
+@media screen and (min-width: 1300px) {
+    .faq>h1 {
         margin-bottom: 50px;
     }
 }
@@ -1023,10 +996,10 @@ h6 {
     z-index: 2;
 }
 
-
 .faq__container__content__i:first-of-type {
     left: 0px;
 }
+
 .faq__container__content__i:last-child {
     right: 0px;
 }
@@ -1039,8 +1012,8 @@ h6 {
     justify-content: unset;
     align-items: unset;
 }
-@media screen and (min-width: 1000px)
-{
+
+@media screen and (min-width: 1000px) {
     .faq__container__content__i:first-of-type {
         left: -40px;
     }
@@ -1053,6 +1026,7 @@ h6 {
         margin-right: 35px;
     }
 }
+
 @media screen and (min-width: 1300px) {
     .faq__container__content__i:first-of-type {
         left: -50px;
@@ -1066,6 +1040,7 @@ h6 {
         margin-right: 80px;
     }
 }
+
 .faq__carousel__items::-webkit-scrollbar {
     width: 5.5px;
 }
@@ -1103,14 +1078,13 @@ h6 {
     justify-content: center;
     align-items: center;
 }
-.footer-comprar-fixo
-{
+
+.footer-comprar-fixo {
     display: none;
 }
-@media screen and (min-width: 1000px)
-{
-    .footer-comprar-fixo
-    {
+
+@media screen and (min-width: 1000px) {
+    .footer-comprar-fixo {
         display: flex;
         position: fixed;
         bottom: -30%;
@@ -1120,27 +1094,25 @@ h6 {
         z-index: 2;
         height: 70px;
     }
-    .hidro-fixo, .uc-fixo
-    {
+    .hidro-fixo,
+    .uc-fixo {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 50%;
     }
-    .hidro-fixo div, .uc-fixo div
-    {
+    .hidro-fixo div,
+    .uc-fixo div {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-    .footer-comprar-fixo h3
-    {
+    .footer-comprar-fixo h3 {
         font-family: Montserrat-bold;
         color: white;
         font-size: 42px;
     }
-    .footer-comprar-fixo a
-    {
+    .footer-comprar-fixo a {
         text-transform: unset;
         font-size: 28px;
         width: max-content;
@@ -1150,20 +1122,17 @@ h6 {
         height: max-content;
         margin-bottom: -63px;
     }
-    .footer-comprar-fixo > a
-    {
+    .footer-comprar-fixo>a {
         position: absolute;
         bottom: 20px;
         left: 190px;
     }
-    .hidro-fixo
-    {
+    .hidro-fixo {
         background-color: #75307e;
         position: relative;
         overflow: hidden;
     }
-    .hidro-fixo::after
-    {
+    .hidro-fixo::after {
         content: '';
         position: absolute;
         top: 0;
@@ -1173,41 +1142,34 @@ h6 {
         transform: rotate(41deg);
         background: #008fa8;
     }
-    .uc-fixo
-    {
+    .uc-fixo {
         background-color: #008fa8;
     }
-    .footer-comprar-fixo img
-    {
+    .footer-comprar-fixo img {
         width: 100px;
         position: absolute;
         z-index: 1;
         top: -85px;
     }
-    .footer-comprar-fixo > img
-    {
+    .footer-comprar-fixo>img {
         left: 80px;
     }
-    .footer-comprar-fixo .uc-fixo h3
-    {
+    .footer-comprar-fixo .uc-fixo h3 {
         margin-bottom: 3px;
     }
-    .uc-fixo img
-    {
+    .uc-fixo img {
         right: 225px;
     }
-    .uc-fixo div
-    {
+    .uc-fixo div {
         margin-right: auto;
         margin-left: 100px;
         margin-top: -15px;
         text-align: right;
     }
 }
-@media screen and (min-width: 1300px)
-{
-    .footer-comprar-fixo a
-    {
+
+@media screen and (min-width: 1300px) {
+    .footer-comprar-fixo a {
         text-transform: unset;
         font-size: 28px;
         width: max-content;
@@ -1217,20 +1179,17 @@ h6 {
         height: max-content;
         margin-bottom: -63px;
     }
-    .footer-comprar-fixo > a
-    {
+    .footer-comprar-fixo>a {
         position: absolute;
         bottom: 20px;
         left: 350px;
     }
-    .hidro-fixo
-    {
+    .hidro-fixo {
         background-color: #75307e;
         position: relative;
         overflow: hidden;
     }
-    .hidro-fixo::after
-    {
+    .hidro-fixo::after {
         content: '';
         position: absolute;
         top: 0;
@@ -1240,27 +1199,22 @@ h6 {
         transform: rotate(48deg);
         background: #008fa8;
     }
-    .uc-fixo
-    {
+    .uc-fixo {
         background-color: #008fa8;
     }
-    .footer-comprar-fixo img
-    {
+    .footer-comprar-fixo img {
         width: 100px;
         position: absolute;
         z-index: 1;
         top: -85px;
     }
-    .footer-comprar-fixo > img
-    {
+    .footer-comprar-fixo>img {
         left: 220px;
     }
-    .uc-fixo img
-    {
+    .uc-fixo img {
         right: 380px;
     }
-    .uc-fixo div
-    {
+    .uc-fixo div {
         margin-right: auto;
         margin-left: 250px;
         text-align: right;
